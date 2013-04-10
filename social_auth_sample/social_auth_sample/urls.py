@@ -6,7 +6,7 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'', include('social_auth_core.urls')),
-    url(r'^auth/?$', include('social_auth.urls')),
+    url(r'', include('social_auth.urls')),
     # Examples:
     # url(r'^$', 'social_auth_sample.views.home', name='home'),
     # url(r'^social_auth_sample/', include('social_auth_sample.foo.urls')),

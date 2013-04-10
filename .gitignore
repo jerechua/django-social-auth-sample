@@ -2,3 +2,4 @@ my_settings.py
 *.pyc
 run.sh
 env
+social_auth_db

@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_auth',
-    'social_auth_core'
+    'social_auth_core',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -158,6 +158,12 @@ LOGGING = {
 }
 
 ##### Custom settings #####
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social_auth.context_processors.social_auth_by_name_backends',
+    'social_auth.context_processors.social_auth_backends',
+    'social_auth.context_processors.social_auth_by_type_backends',
+    'social_auth.context_processors.social_auth_login_redirect',
+)
 
 SOCIAL_AUTH_USER_MODEL = 'social_auth_core.User'
 
