@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User as django_user
+from django.contrib.auth.models import User
 
-class User(django_user):
-    blah = models.PositiveIntegerField()
+class FbUser(User):
+    some_number = models.CharField(max_length=50)

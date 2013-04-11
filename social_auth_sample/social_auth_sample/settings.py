@@ -143,7 +143,7 @@ LOGGING = {
     },
     'handlers': {
         'mail_admins': {
-            'level': 'ERROR',
+            'level': 'INFO',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
         }
@@ -151,7 +151,12 @@ LOGGING = {
     'loggers': {
         'django.request': {
             'handlers': ['mail_admins'],
-            'level': 'ERROR',
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'SocialAuth': {
+            'handlers': ['mail_admins'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
@@ -165,7 +170,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_login_redirect',
 )
 
-SOCIAL_AUTH_USER_MODEL = 'social_auth_core.User'
+# SOCIAL_AUTH_USER_MODEL = 'social_auth_core.FbUser'
 
 TWITTER_CONSUMER_KEY         = ''
 TWITTER_CONSUMER_SECRET      = ''
@@ -218,5 +223,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/logged-in/'
-LOGIN_ERROR_URL = '/login-err/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL = '/login-err'
+
+# SOCIAL_AUTH_RAISE_EXCEPTIONS = True
+# SOCIAL_AUTH_PROCESS_EXCEPTIONS = 'social_auth.utils.log_exceptions_to_messages'
